@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name</title>
+  <link rel="icon" href="data:,">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:720px;margin:5rem auto;padding:0 1rem;line-height:1.6}
+    h1{font-size:2.2rem;margin:.2rem 0}
+    nav a{margin-right:.8rem}
+    .card{border:1px solid #ddd;border-radius:12px;padding:1rem;margin:1rem 0}
+    footer{margin-top:3rem;font-size:.9rem;opacity:.7}
+  </style>
+</head>
+<body>
+  <h1>Hi, I’m Your Name 👋</h1>
+  <p>Short bio. What you do, what you like, how to reach you.</p>
+
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#writing">Writing</a>
+    <a href="https://github.com/YOURUSERNAME">GitHub</a>
+  </nav>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card"><strong>Cool Thing</strong> — one-liner about it. <a href="#">Code</a> • <a href="#">Demo</a></div>
+  </section>
+
+  <section id="writing">
+    <h2>Writing</h2>
+    <ul>
+      <li><a href="#">Post title</a> — 2025-08-01</li>
+    </ul>
+  </section>
+
+  <footer>© <span id="y"></span> Your Name</footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
