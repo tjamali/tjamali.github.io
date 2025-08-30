@@ -3,67 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Academic Portfolio</title>
+  <title>Tayeb Jamali — Academic Portfolio</title>
   <meta name="description" content="Academic-style personal site: research, publications and CV." />
   <link rel="icon" href="data:," />
   <style>
     :root{
-      --bg: #f6f7fb;
-      --surface: #ffffff;
-      --surface-2:#fafafa;
-      --text: #111827;
-      --muted:#6b7280;
-      --line: #e5e7eb;
-      --brand:#2563eb;
-      --radius:14px;
-      --shadow: 0 6px 16px rgba(17,24,39,.06);
-      --maxw: 1180px;
+      --bg:#f6f7fb; --surface:#ffffff; --surface-2:#fafafa; --text:#111827; --muted:#6b7280;
+      --line:#e5e7eb; --brand:#2563eb; --radius:14px; --shadow:0 6px 16px rgba(17,24,39,.06);
+      --maxw:1180px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0; font:16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif; color:var(--text); background:var(--bg)}
+    body{margin:0; font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial,sans-serif; color:var(--text); background:var(--bg)}
     a{color:var(--brand); text-decoration:none}
     a:hover{text-decoration:underline}
-
-    .topbar{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background:rgba(246,247,251,.85); border-bottom:1px solid var(--line)}
+    .topbar{position:sticky; top:0; z-index:50; backdrop-filter:blur(8px); background:rgba(246,247,251,.85); border-bottom:1px solid var(--line)}
     .topwrap{max-width:var(--maxw); margin:0 auto; padding:10px 16px; display:flex; align-items:center; gap:14px}
     .site{font-weight:800; letter-spacing:.2px}
     nav{margin-left:auto; display:flex; flex-wrap:wrap; gap:12px}
     .navlink{display:inline-block; padding:8px 12px; border-radius:999px; border:1px solid transparent}
     .navlink:hover{background:var(--surface); border-color:var(--line); text-decoration:none}
-
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:22px 16px 80px; display:grid; grid-template-columns: 300px 1fr; gap:12px}
-    @media (max-width: 980px){ .wrap{ grid-template-columns: 1fr; } }
-
+    .navlink[aria-current="page"]{background:var(--surface); border-color:var(--line)}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:22px 16px 80px; display:grid; grid-template-columns:300px 1fr; gap:12px}
+    @media (max-width:980px){.wrap{grid-template-columns:1fr}}
     .side{position:sticky; top:70px; align-self:start; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
     .avatar{width:200px;height:200px;border-radius:50%;object-fit:cover; display:block; border:1px solid var(--line); margin:4px auto 10px}
-    .name{font-size:1.8rem; margin:6px 0 0; text-align: center;}
+    .name{font-size:1.8rem; margin:6px 0 0; text-align:center}
     .role{color:var(--muted); margin:2px 0 12px}
     .bio{color:var(--muted); margin:10px 0 14px}
     .slist{list-style:none; padding:0; margin:0}
     .slist li{margin:8px 0; display:flex; gap:10px; align-items:center}
+    .slist img{width:24px;height:24px; display:block}
     .btn{display:inline-flex; align-items:center; gap:.5rem; padding:9px 12px; border:1px solid var(--line); background:var(--surface-2); border-radius:10px; font-weight:600}
     .btn:hover{background:#fff; text-decoration:none}
-
     .main{min-width:0}
     .panel{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); margin-bottom:18px}
     .panel h2{margin:.2rem 0 10px; font-size:1.6rem}
     .lead{font-size:1.05rem; color:#374151}
-
     .list{list-style:none; padding:0; margin:0}
     .list li{padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface-2); margin:10px 0}
     .meta{color:var(--muted); font-size:.9rem}
-
     .footer{color:var(--muted); text-align:center; margin-top:24px}
   </style>
 </head>
 <body>
   <header class="topbar" role="banner">
     <div class="topwrap">
-      <div class="site">Your Name / Site Title</div>
+      <div class="site">Tayeb Jamali / Site Title</div>
       <nav aria-label="Primary">
-        <a class="navlink" href="#home">Home</a>
-        <a class="navlink" href="#research">Research</a>
+        <a class="navlink" href="index.html" aria-current="page">Home</a>
+        <a class="navlink" href="research.html">Research</a>
         <a class="navlink" href="#publications">Publications</a>
         <a class="navlink" href="#cv">CV</a>
       </nav>
@@ -72,66 +61,38 @@
 
   <div class="wrap" id="home">
     <aside class="side" aria-label="Sidebar profile">
-      <img class="avatar" src="images/profile.jpeg" alt="Portrait of Your Name" />
+      <img class="avatar" src="images/profile.jpeg" alt="Portrait of Tayeb Jamali" />
       <h2 class="name">Tayeb Jamali</h2>
       <p class="role">Broad Institute of MIT and Harvard</p>
       <p class="bio">Brief biography for the left sidebar. Two or three sentences about your interests and current role.</p>
       <ul class="slist">
-        <li>
-          <img src="images/location_icon.png" alt="Map" style="width:24px;height:24px"> 
-          <span>Massachusetts, US</span>
-        </li>
+        <li><img src="images/location_icon.png" alt="Map"><span>Massachusetts, US</span></li>
         <li style="font-size:14px;">✉️ tjamali [at] broadinstitute [dot] org</li>
-        <li> 
-          <img src="images/google_scholar.png" alt="Google" style="width:24px;height:24px">
-          <a href="https://scholar.google.com/citations?user=gKxX7foAAAAJ&hl=en&oi=ao">Google Scholar</a>
-        </li>
-        <li>
-          <img src="images/orcid.png" alt="ORCID" style="width:24px;height:24px">
-          <a href="https://orcid.org/0000-0002-0690-3580" target="_blank" rel="noopener">ORCID</a>
-        </li>
-        <li>
-          <img src="images/github.png" alt="Github" style="width:24px;height:24px">
-          <a href="https://github.com/tjamali" target="_blank" rel="noopener">Github</a>
-        </li>
-        <li>
-          <img src="images/linkedin.png" alt="LinkedIn" style="width:24px;height:24px">
-          <a href="https://www.linkedin.com/in/tjamali/" target="_blank" rel="noopener">LinkedIn</a>
-        </li>
+        <li><img src="images/google_scholar.png" alt="Google"><a href="https://scholar.google.com/citations?user=gKxX7foAAAAJ&hl=en&oi=ao">Google Scholar</a></li>
+        <li><img src="images/orcid.png" alt="ORCID"><a href="https://orcid.org/0000-0002-0690-3580" target="_blank" rel="noopener">ORCID</a></li>
+        <li><img src="images/github.png" alt="GitHub"><a href="https://github.com/tjamali" target="_blank" rel="noopener">GitHub</a></li>
+        <li><img src="images/linkedin.png" alt="LinkedIn"><a href="https://www.linkedin.com/in/tjamali/" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
       <p style="margin-top:14px"><a class="btn" href="#cv">View CV</a></p>
     </aside>
 
     <main class="main">
       <section class="panel">
-        <h2>Academic Pages — clean, data‑driven personal website</h2>
-        <p class="lead">This front page mirrors a standard academic profile layout with a left sidebar and clean content area. Populate it with your research summary, publications, and CV.</p>
+        <h2>Welcome</h2>
+        <p class="lead">This site highlights selected publications and my CV. For projects and agenda details, see the <a href="research.html">Research page</a>.</p>
       </section>
 
-      <section class="panel" id="research" aria-labelledby="research-title">
-        <h2 id="research-title">Research</h2>
-        <p class="lead">Brief description of your research agenda—e.g., trustworthy ML, retrieval‑augmented generation, time‑series forecasting, and human‑centered evaluation. Summarize themes and current projects.</p>
-        <ul class="list">
-          <li>
-            <strong>Trustworthy Time‑Series Forecasting</strong>
-            <div class="meta">Calibrated uncertainty for intermittent demand using conformal prediction · <a href="#">Project page</a></div>
-          </li>
-          <li>
-            <strong>Efficient Retrieval for Long‑Context LLMs</strong>
-            <div class="meta">Segment‑aware indexing + hybrid reranking · <a href="#">Demo</a></div>
-          </li>
-        </ul>
-      </section>
+      <!-- Removed inline Research section; link goes to research.html -->
 
       <section class="panel" id="publications" aria-labelledby="pubs-title">
         <h2 id="pubs-title">Publications</h2>
         <ul class="list">
           <li>
-            <strong>Sequence Models for Irregular Time‑Series with Conformal Coverage</strong>
+            <strong>Sequence Models for Irregular Time-Series with Conformal Coverage</strong>
             <div class="meta">Journal of ML Systems, 2024 · with A. Smith, B. Lee · <a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">BibTeX</a></div>
           </li>
           <li>
-            <strong>Segment‑Aware RAG: Indexing and Reranking for Long Documents</strong>
+            <strong>Segment-Aware RAG: Indexing and Reranking for Long Documents</strong>
             <div class="meta">ACL Findings, 2023 · with C. Doe · <a href="#">PDF</a> · <a href="#">Slides</a></div>
           </li>
           <li>
@@ -143,7 +104,6 @@
 
       <section class="panel" id="cv">
         <h2>CV</h2>
-        <p>Keep a single downloadable PDF here and a short summary below.</p>
         <p><a class="btn" href="/cv.pdf">Download CV (PDF)</a></p>
         <ul class="list">
           <li><strong>Current</strong> — Research Scientist, Example Lab (2022–present)</li>
@@ -152,12 +112,10 @@
         </ul>
       </section>
 
-      <p class="footer">© <span id="y"></span> Your Name · Built on GitHub Pages</p>
+      <p class="footer">© <span id="y"></span> Tayeb Jamali · Built on GitHub Pages</p>
     </main>
   </div>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
