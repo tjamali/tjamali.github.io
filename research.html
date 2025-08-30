@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research — Tayeb Jamali</title>
+  <meta name="description" content="Research agenda, projects, datasets, and tools by Tayeb Jamali." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="topwrap">
+      <div class="site">Tayeb Jamali / Research</div>
+      <nav aria-label="Primary">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink" href="research.html" aria-current="page">Research</a>
+        <a class="navlink" href="index.html#publications">Publications</a>
+        <a class="navlink" href="index.html#cv">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <aside class="side" aria-label="Sidebar profile">
+      <img class="avatar" src="images/profile.jpeg" alt="Portrait of Tayeb Jamali" />
+      <h2 class="name">Tayeb Jamali</h2>
+      <p class="role">Broad Institute of MIT and Harvard</p>
+      <p class="bio">Brief biography for the left sidebar. Two or three sentences about your interests and current role.</p>
+      <ul class="slist">
+        <li><img src="images/location_icon.png" alt="Map"><span>Massachusetts, US</span></li>
+        <li style="font-size:14px;">✉️ tjamali [at] broadinstitute [dot] org</li>
+        <li><img src="images/google_scholar.png" alt="Google"><a href="https://scholar.google.com/citations?user=gKxX7foAAAAJ&hl=en&oi=ao">Google Scholar</a></li>
+        <li><img src="images/orcid.png" alt="ORCID"><a href="https://orcid.org/0000-0002-0690-3580" target="_blank" rel="noopener">ORCID</a></li>
+        <li><img src="images/github.png" alt="GitHub"><a href="https://github.com/tjamali" target="_blank" rel="noopener">GitHub</a></li>
+        <li><img src="images/linkedin.png" alt="LinkedIn"><a href="https://www.linkedin.com/in/tjamali/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+      <p style="margin-top:14px"><a class="btn" href="index.html#cv">View CV</a></p>
+    </aside>
+
+    <main class="main">
+      <section class="panel">
+        <h2>Research Overview</h2>
+        <p class="lead">I work on trustworthy ML, retrieval-augmented generation, time-series forecasting, and human-centered evaluation. Below are current themes and selected projects.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Themes</h2>
+        <div class="grid">
+          <div class="panel" style="margin:0">
+            <h3>Trustworthy Forecasting</h3>
+            <p class="meta">Uncertainty quantification · Conformal prediction · Intermittent demand</p>
+            <p>Methods to produce calibrated prediction intervals that improve downstream decisions.</p>
+          </div>
+          <div class="panel" style="margin:0">
+            <h3>Retrieval for Long Context</h3>
+            <p class="meta">Segment-aware indexing · Hybrid reranking · Evaluation</p>
+            <p>Techniques that increase groundedness and reduce hallucinations in document QA.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Selected Projects</h2>
+        <ul class="list">
+          <li>
+            <strong>Calibrated Intermittent Demand Forecasting</strong>
+            <div class="meta">Conformal prediction, hierarchical reconciliation · <a href="#">Project page</a> · <a href="#">Code</a></div>
+          </li>
+          <li>
+            <strong>Segment-Aware Retrieval for Long Documents</strong>
+            <div class="meta">Windowed chunking, hybrid reranking · <a href="#">Demo</a> · <a href="#">Dataset</a></div>
+          </li>
+          <li>
+            <strong>Human-Centered LLM Evaluation</strong>
+            <div class="meta">Rubrics + telemetry · <a href="#">Preprint</a></div>
+          </li>
+        </ul>
+      </section>
+
+      <p class="footer">© <span id="y"></span> Tayeb Jamali · Research</p>
+    </main>
+  </div>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
