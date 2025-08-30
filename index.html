@@ -36,7 +36,7 @@
     @media (max-width: 980px){ .wrap{ grid-template-columns: 1fr; } }
 
     .side{position:sticky; top:70px; align-self:start; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
-    .avatar{width:170px;height:170px;border-radius:50%;object-fit:cover; display:block; border:1px solid var(--line); margin:4px auto 10px}
+    .avatar{width:200px;height:200px;border-radius:50%;object-fit:cover; display:block; border:1px solid var(--line); margin:4px auto 10px}
     .name{font-size:1.8rem; margin:6px 0 0}
     .role{color:var(--muted); margin:2px 0 12px}
     .bio{color:var(--muted); margin:10px 0 14px}
@@ -73,7 +73,7 @@
   <div class="wrap" id="home">
     <aside class="side" aria-label="Sidebar profile">
       <img class="avatar" src="images/profile.jpeg" alt="Portrait of Your Name" />
-      <h1 class="name">Tayeb Jamali</h1>
+      <h2 class="name">Tayeb Jamali</h2>
       <p class="role">Broad Institute of MIT and Harvard</p>
       <p class="bio">Brief biography for the left sidebar. Two or three sentences about your interests and current role.</p>
       <ul class="slist">
@@ -82,7 +82,7 @@
         <li>🔎 <a href="https://scholar.google.com/citations?user=gKxX7foAAAAJ&hl=en&oi=ao">Google Scholar</a></li>
         <li>🆔 <a href="https://orcid.org/0000-0002-0690-3580">ORCID</a></li>
         <li>🐙 <a href="https://github.com/tjamali" target="_blank" rel="noopener">GitHub</a></li>
-        <li>🔗 <a href="#">Bluesky / LinkedIn</a></li>
+        <li><i class="fab fa-linkedin"></i> <a href="#">Bluesky / LinkedIn</a></li>
       </ul>
       <p style="margin-top:14px"><a class="btn" href="#cv">View CV</a></p>
     </aside>
