@@ -3,250 +3,147 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tayeb Jamali — Portfolio</title>
-  <meta name="description" content="Portfolio website for Your Name: research, publications, projects, and contact." />
+  <title>Your Name — Academic Portfolio</title>
+  <meta name="description" content="Academic-style personal site: research, publications and CV." />
   <link rel="icon" href="data:," />
   <style>
-    /* ====== Design Tokens ====== */
     :root{
-      --bg: #0b0d10;         /* page background */
-      --panel: #12161b;      /* cards / panels */
-      --muted: #9aa4b2;      /* secondary text */
-      --text: #e6edf3;       /* primary text */
-      --brand: #46b3ff;      /* accent */
-      --brand-2: #63ffa1;    /* secondary accent */
-      --border: #1f2630;     /* borders */
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --radius-sm: 12px;
-      --maxw: 1200px;
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --surface-2:#fafafa;
+      --text: #111827;
+      --muted:#6b7280;
+      --line: #e5e7eb;
+      --brand:#2563eb;
+      --radius:14px;
+      --shadow: 0 6px 16px rgba(17,24,39,.06);
+      --maxw: 1180px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{
-      margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      color:var(--text); background: radial-gradient(1200px 600px at 80% -10%, rgba(70,179,255,.12), transparent 60%),
-                           radial-gradient(800px 800px at -10% 10%, rgba(99,255,161,.08), transparent 60%),
-                           var(--bg);
-    }
+    body{margin:0; font:16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif; color:var(--text); background:var(--bg)}
     a{color:var(--brand); text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* ====== Layout ====== */
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:28px 20px 80px; display:grid; grid-template-columns: 320px 1fr; gap:28px}
-    @media (max-width: 900px){ .wrap{ grid-template-columns: 1fr; } }
+    .topbar{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background:rgba(246,247,251,.85); border-bottom:1px solid var(--line)}
+    .topwrap{max-width:var(--maxw); margin:0 auto; padding:10px 16px; display:flex; align-items:center; gap:14px}
+    .site{font-weight:800; letter-spacing:.2px}
+    nav{margin-left:auto; display:flex; flex-wrap:wrap; gap:12px}
+    .navlink{display:inline-block; padding:8px 12px; border-radius:999px; border:1px solid transparent}
+    .navlink:hover{background:var(--surface); border-color:var(--line); text-decoration:none}
 
-    /* ====== Sidebar ====== */
-    .side{position:sticky; top:20px; align-self:start; background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
-    .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid var(--border); box-shadow: 0 6px 14px rgba(0,0,0,.4)}
-    .name{font-size:1.9rem; line-height:1.2; margin:12px 0 6px}
-    .title{color:var(--muted); margin:0}
-    .side .bio{margin:14px 0 16px; color:var(--muted)}
-    .kpis{display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; margin:14px 0}
-    .kpi{background:#0e1217; border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px; text-align:center}
-    .kpi .num{font-size:1.15rem; font-weight:700}
-    .kpi .lab{font-size:.78rem; color:var(--muted)}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:22px 16px 80px; display:grid; grid-template-columns: 290px 1fr; gap:22px}
+    @media (max-width: 980px){ .wrap{ grid-template-columns: 1fr; } }
 
-    .links{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
-    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:10px 14px; border:1px solid var(--border); background:#0e1217; border-radius:999px; font-weight:600}
-    .btn:hover{border-color:#2b3442; text-decoration:none}
+    .side{position:sticky; top:70px; align-self:start; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .avatar{width:120px;height:120px;border-radius:50%;object-fit:cover; display:block; border:1px solid var(--line); margin:4px 0 10px}
+    .name{font-size:1.8rem; margin:6px 0 0}
+    .role{color:var(--muted); margin:2px 0 12px}
+    .bio{color:var(--muted); margin:10px 0 14px}
+    .slist{list-style:none; padding:0; margin:0}
+    .slist li{margin:8px 0; display:flex; gap:10px; align-items:center}
+    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:9px 12px; border:1px solid var(--line); background:var(--surface-2); border-radius:10px; font-weight:600}
+    .btn:hover{background:#fff; text-decoration:none}
 
-    .sep{height:1px; background:var(--border); margin:18px 0}
-    .list-plain{list-style:none; padding:0; margin:0}
-    .list-plain li{margin:8px 0}
-
-    /* ====== Main ====== */
     .main{min-width:0}
-    .hero{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)); border:1px solid var(--border); padding:22px 24px; border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:18px}
-    .hero h1{font-size:2.1rem; margin:.2rem 0 .6rem}
-    .hero p{margin:0; color:var(--muted)}
+    .panel{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); margin-bottom:18px}
+    .panel h2{margin:.2rem 0 10px; font-size:1.6rem}
+    .lead{font-size:1.05rem; color:#374151}
 
-    /* ====== Tabs ====== */
-    .tabs{display:flex; gap:8px; margin:18px 0}
-    .tab-btn{padding:10px 14px; border:1px solid var(--border); background:#0e1217; border-radius:10px; cursor:pointer; font-weight:600}
-    .tab-btn[aria-selected="true"]{outline:2px solid color-mix(in srgb, var(--brand) 60%, transparent); background:linear-gradient(180deg, #11161c, #0c1015);}
+    .list{list-style:none; padding:0; margin:0}
+    .list li{padding:14px; border:1px solid var(--line); border-radius:10px; background:var(--surface-2); margin:10px 0}
+    .meta{color:var(--muted); font-size:.9rem}
 
-    .panel{display:none; background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
-    .panel.active{display:block}
-
-    /* ====== Cards / grids ====== */
-    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:16px}
-    .card{grid-column: span 12; background:#0e1217; border:1px solid var(--border); border-radius:16px; padding:16px}
-    .card h3{margin:0 0 6px}
-    .card p{margin:0; color:var(--muted)}
-    @media (min-width: 700px){ .card.half{grid-column: span 6} }
-
-    /* ====== Publication list ====== */
-    .pub{display:grid; grid-template-columns: 1fr auto; gap:8px; align-items:start; padding:14px; border:1px dashed var(--border); border-radius:12px; margin:10px 0; background:#0c1015}
-    .pub .meta{font-size:.86rem; color:var(--muted)}
-    .pub .actions a{margin-left:12px}
-
-    /* ====== Footer ====== */
-    footer{color:var(--muted); text-align:center; margin-top:24px}
-
-    /* Accessibility helpers */
-    :focus-visible{outline:2px solid var(--brand); outline-offset:2px}
+    .footer{color:var(--muted); text-align:center; margin-top:24px}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <!-- Sidebar -->
-    <aside class="side" aria-label="Profile">
-      <img class="avatar" src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Portrait of Your Name" />
-      <h2 class="name">Your Name</h2>
-      <p class="title">Researcher • Data Scientist</p>
-      <p class="bio">I explore machine learning for real‑world impact—applied NLP, time‑series forecasting, and human‑centered AI. Currently focused on trustworthy models and evaluation.</p>
+  <header class="topbar" role="banner">
+    <div class="topwrap">
+      <div class="site">Your Name / Site Title</div>
+      <nav aria-label="Primary">
+        <a class="navlink" href="#home">Home</a>
+        <a class="navlink" href="#research">Research</a>
+        <a class="navlink" href="#publications">Publications</a>
+        <a class="navlink" href="#cv">CV</a>
+      </nav>
+    </div>
+  </header>
 
-      <div class="kpis" aria-label="Highlights">
-        <div class="kpi"><div class="num">12+</div><div class="lab">Publications</div></div>
-        <div class="kpi"><div class="num">7 yrs</div><div class="lab">Experience</div></div>
-        <div class="kpi"><div class="num">6</div><div class="lab">Awards</div></div>
-      </div>
-
-      <div class="links">
-        <a class="btn" href="#contact">Contact</a>
-        <a class="btn" href="https://github.com/YOURUSERNAME" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/YOURUSERNAME" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-
-      <div class="sep" role="presentation"></div>
-
-      <ul class="list-plain">
-        <li>📍 Based in Prague (remote‑friendly)</li>
+  <div class="wrap" id="home">
+    <aside class="side" aria-label="Sidebar profile">
+      <img class="avatar" src="images/profile.jpg" alt="Portrait of Your Name" />
+      <h1 class="name">Your Sidebar Name</h1>
+      <p class="role">Short tagline · University / Company</p>
+      <p class="bio">Brief biography for the left sidebar. Two or three sentences about your interests and current role.</p>
+      <ul class="slist">
+        <li>🌍 <span>City, Country</span></li>
+        <li>🎓 <span>Red Brick University</span></li>
         <li>✉️ <a href="mailto:you@example.com">you@example.com</a></li>
-        <li>📝 CV: <a href="#">Download PDF</a></li>
+        <li>🔎 <a href="#">Google Scholar</a></li>
+        <li>🆔 <a href="#">ORCID</a></li>
+        <li>🐙 <a href="https://github.com/YOURUSERNAME" target="_blank" rel="noopener">GitHub</a></li>
+        <li>🔗 <a href="#">Bluesky / LinkedIn</a></li>
       </ul>
+      <p style="margin-top:14px"><a class="btn" href="#cv">View CV</a></p>
     </aside>
 
-    <!-- Main -->
     <main class="main">
-      <section class="hero" aria-label="Intro">
-        <h1>Turning research into useful tools.</h1>
-        <p>Below you’ll find a snapshot of my recent work. Use the tabs to see <strong>Research</strong> and <strong>Publications</strong>. Projects and a quick contact form are included, too.</p>
+      <section class="panel">
+        <h2>Academic Pages — clean, data‑driven personal website</h2>
+        <p class="lead">This front page mirrors a standard academic profile layout with a left sidebar and clean content area. Populate it with your research summary, publications, and CV.</p>
       </section>
 
-      <!-- Tabs -->
-      <div class="tabs" role="tablist" aria-label="Primary">
-        <button class="tab-btn" role="tab" id="tab-research" aria-controls="panel-research" aria-selected="true">Research</button>
-        <button class="tab-btn" role="tab" id="tab-publications" aria-controls="panel-publications" aria-selected="false">Publications</button>
-      </div>
-
-      <!-- Research Panel -->
-      <section id="panel-research" class="panel active" role="tabpanel" aria-labelledby="tab-research">
-        <div class="grid">
-          <article class="card half">
-            <h3>Trustworthy Time‑Series Forecasting</h3>
-            <p>Calibrated uncertainty for intermittent demand using conformal prediction. <a href="#">Preprint</a> • <a href="#">Code</a></p>
-          </article>
-          <article class="card half">
-            <h3>Efficient Retrieval for Long‑Context LLMs</h3>
-            <p>Segment‑aware indexing and hybrid reranking improve answer grounding by 21%. <a href="#">Demo</a> • <a href="#">Dataset</a></p>
-          </article>
-          <article class="card">
-            <h3>Human‑Centered Evaluation</h3>
-            <p>Mixed‑methods framework combining rubric‑based scoring with behavioral telemetry to measure model helpfulness & reliability.</p>
-          </article>
-        </div>
+      <section class="panel" id="research" aria-labelledby="research-title">
+        <h2 id="research-title">Research</h2>
+        <p class="lead">Brief description of your research agenda—e.g., trustworthy ML, retrieval‑augmented generation, time‑series forecasting, and human‑centered evaluation. Summarize themes and current projects.</p>
+        <ul class="list">
+          <li>
+            <strong>Trustworthy Time‑Series Forecasting</strong>
+            <div class="meta">Calibrated uncertainty for intermittent demand using conformal prediction · <a href="#">Project page</a></div>
+          </li>
+          <li>
+            <strong>Efficient Retrieval for Long‑Context LLMs</strong>
+            <div class="meta">Segment‑aware indexing + hybrid reranking · <a href="#">Demo</a></div>
+          </li>
+        </ul>
       </section>
 
-      <!-- Publications Panel -->
-      <section id="panel-publications" class="panel" role="tabpanel" aria-labelledby="tab-publications">
-        <div class="pub">
-          <div>
+      <section class="panel" id="publications" aria-labelledby="pubs-title">
+        <h2 id="pubs-title">Publications</h2>
+        <ul class="list">
+          <li>
             <strong>Sequence Models for Irregular Time‑Series with Conformal Coverage</strong>
-            <div class="meta">Journal of ML Systems, 2024 · with A. Smith, B. Lee</div>
-          </div>
-          <div class="actions">
-            <a href="#">PDF</a>
-            <a href="#">BibTeX</a>
-            <a href="#">Code</a>
-          </div>
-        </div>
-        <div class="pub">
-          <div>
+            <div class="meta">Journal of ML Systems, 2024 · with A. Smith, B. Lee · <a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">BibTeX</a></div>
+          </li>
+          <li>
             <strong>Segment‑Aware RAG: Indexing and Reranking for Long Documents</strong>
-            <div class="meta">ACL Findings, 2023 · with C. Doe, D. Patel</div>
-          </div>
-          <div class="actions">
-            <a href="#">PDF</a>
-            <a href="#">Slides</a>
-          </div>
-        </div>
-        <div class="pub">
-          <div>
+            <div class="meta">ACL Findings, 2023 · with C. Doe · <a href="#">PDF</a> · <a href="#">Slides</a></div>
+          </li>
+          <li>
             <strong>Measuring Helpfulness Beyond Accuracy in LLMs</strong>
-            <div class="meta">CHI Workshop, 2023 · with E. Zhang</div>
-          </div>
-          <div class="actions">
-            <a href="#">PDF</a>
-          </div>
-        </div>
+            <div class="meta">CHI Workshop, 2023 · <a href="#">PDF</a></div>
+          </li>
+        </ul>
       </section>
 
-      <!-- Projects -->
-      <section class="panel" aria-label="Projects" style="margin-top:18px">
-        <h2 style="margin:4px 0 10px">Projects</h2>
-        <div class="grid">
-          <article class="card half">
-            <h3>Open Demand Forecast</h3>
-            <p>Productionized probabilistic forecasts for 3k SKUs; reduced stock‑outs by 14%. <a href="#">Case study</a></p>
-          </article>
-          <article class="card half">
-            <h3>Paper‑QA Toolkit</h3>
-            <p>Lightweight RAG pipeline tuned for academic PDFs. 1.7× faster indexing, same accuracy. <a href="#">Repo</a></p>
-          </article>
-        </div>
+      <section class="panel" id="cv">
+        <h2>CV</h2>
+        <p>Keep a single downloadable PDF here and a short summary below.</p>
+        <p><a class="btn" href="/cv.pdf">Download CV (PDF)</a></p>
+        <ul class="list">
+          <li><strong>Current</strong> — Research Scientist, Example Lab (2022–present)</li>
+          <li><strong>Prior</strong> — Data Scientist, Example Co. (2018–2022)</li>
+          <li><strong>Education</strong> — M.Sc., Computer Science, Red Brick University</li>
+        </ul>
       </section>
 
-      <!-- Contact -->
-      <section id="contact" class="panel" aria-label="Contact" style="margin-top:18px">
-        <h2 style="margin:4px 0 10px">Get in touch</h2>
-        <form action="mailto:you@example.com" method="post" enctype="text/plain">
-          <div class="grid">
-            <div class="card half">
-              <label for="name"><strong>Name</strong></label>
-              <input id="name" name="name" required style="width:100%;margin-top:6px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:#0c1015;color:var(--text)" />
-            </div>
-            <div class="card half">
-              <label for="email"><strong>Email</strong></label>
-              <input id="email" name="email" type="email" required style="width:100%;margin-top:6px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:#0c1015;color:var(--text)" />
-            </div>
-            <div class="card" style="grid-column:span 12">
-              <label for="msg"><strong>Message</strong></label>
-              <textarea id="msg" name="message" rows="4" required style="width:100%;margin-top:6px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:#0c1015;color:var(--text)"></textarea>
-            </div>
-          </div>
-          <button class="btn" type="submit" style="margin-top:8px">Send</button>
-        </form>
-      </section>
-
-      <footer>© <span id="y"></span> Your Name · Built with ❤️ and GitHub Pages</footer>
+      <p class="footer">© <span id="y"></span> Your Name · Built on GitHub Pages</p>
     </main>
   </div>
 
   <script>
-    // Tab logic with hash support
-    (function(){
-      const tabs = [
-        {btn: document.getElementById('tab-research'), panel: document.getElementById('panel-research'), hash: '#research'},
-        {btn: document.getElementById('tab-publications'), panel: document.getElementById('panel-publications'), hash: '#publications'}
-      ];
-      const byHash = new Map(tabs.map(t => [t.hash, t]));
-      function activate(target){
-        tabs.forEach(t => {
-          const on = (t === target);
-          t.btn.setAttribute('aria-selected', on);
-          t.panel.classList.toggle('active', on);
-        });
-      }
-      tabs.forEach(t => t.btn.addEventListener('click', () => { history.replaceState(null, '', t.hash); activate(t); }));
-      window.addEventListener('hashchange', () => { const t = byHash.get(location.hash); if(t) activate(t); });
-      // initial
-      const current = byHash.get(location.hash) || tabs[0];
-      activate(current);
-      document.getElementById('y').textContent = new Date().getFullYear();
-    })();
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
