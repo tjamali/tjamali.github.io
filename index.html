@@ -5,59 +5,84 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Your Site Title</title>
   <meta name="description" content="A short description for SEO." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="favicon.ico" />
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">YourName</a>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
-    </nav>
-  </header>
+  <!-- Top nav -->
+  <div class="topbar">
+    <div class="topwrap">
+      <a class="site" href="index.html">YourName</a>
+      <nav>
+        <a class="navlink" href="index.html" aria-current="page">Home</a>
+        <a class="navlink" href="research.html">Research</a>
+      </nav>
+    </div>
+  </div>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Hi, I’m Your Name</h1>
-      <p class="lede">One line about what you do. Keep it crisp.</p>
-      <div class="cta-row">
-        <a class="btn primary" href="research.html">See my work</a>
-        <a class="btn" href="#contact">Contact me</a>
-      </div>
-    </section>
+  <!-- Layout: sidebar + main -->
+  <div class="wrap">
+    <aside class="side">
+      <img class="avatar" src="avatar.jpg" alt="Your portrait" loading="lazy" />
+      <h1 class="name">Your Name</h1>
+      <p class="role">Your role · Your org</p>
+      <p class="bio">Short bio about your interests and focus areas. Keep it to two lines for balance.</p>
 
-    <section class="cards">
-      <article class="card">
-        <h2>Featured Project</h2>
-        <p>Brief teaser for your best thing. Link below.</p>
-        <a class="card-link" href="research.html#featured">Read more →</a>
-      </article>
-      <article class="card">
-        <h2>About</h2>
-        <p>Short bio: who you are, what you care about.</p>
-        <a class="card-link" href="research.html#about">More about me →</a>
-      </article>
-    </section>
-
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <ul>
-        <li><a href="mailto:you@example.com">you@example.com</a></li>
-        <li><a href="https://github.com/yourhandle">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a></li>
+      <ul class="slist">
+        <li><img src="icons/mail.svg" alt=""/><a class="btn" href="mailto:you@example.com">you@example.com</a></li>
+        <li><img src="icons/github.svg" alt=""/><a class="btn" href="https://github.com/yourhandle">github.com/yourhandle</a></li>
+        <li><img src="icons/linkedin.svg" alt=""/><a class="btn" href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a></li>
       </ul>
-    </section>
-  </main>
+    </aside>
 
-  <footer class="site-footer">
-    <small>© <span id="year"></span> Your Name</small>
-  </footer>
+    <main class="main">
+      <section class="panel">
+        <h2>About</h2>
+        <p class="lead">A quick intro to who you are and what you work on. Mention your current interests and what you’re open to collaborating on.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Highlights</h2>
+        <div class="grid">
+          <div class="panel" style="margin:0">
+            <h3>Featured Project</h3>
+            <p>Brief summary of your best work. Why it’s useful/novel.</p>
+            <p class="meta"><a href="research.html#featured">Read more →</a></p>
+          </div>
+          <div class="panel" style="margin:0">
+            <h3>Recent</h3>
+            <ul class="list">
+              <li>
+                <div><strong>Thing you shipped</strong></div>
+                <div class="meta">2025 · <a href="research.html">details</a></div>
+              </li>
+              <li>
+                <div><strong>Talk or post</strong></div>
+                <div class="meta">2025 · <a href="#">slides</a></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="panel">
+        <h2>Contact</h2>
+        <p class="lead">The fastest way to reach me is email. I’m also active on GitHub and LinkedIn.</p>
+        <p><a class="btn" href="mailto:you@example.com">Email me</a></p>
+      </section>
+
+      <p class="footer">© <span id="year"></span> Your Name</p>
+    </main>
+  </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    // set nav aria-current based on path
+    const here = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navlink').forEach(a => {
+      if (a.getAttribute('href') === here) a.setAttribute('aria-current','page');
+      else a.removeAttribute('aria-current');
+    });
   </script>
 </body>
 </html>
