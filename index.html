@@ -1,88 +1,245 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Site Title</title>
-  <meta name="description" content="A short description for SEO." />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="favicon.ico" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>Your Name - Software Engineer & Researcher</title>
+  <meta name="description" content="Personal website of Your Name - Software Engineer specializing in machine learning, web development, and open source contributions.">
+  <meta name="keywords" content="software engineer, developer, researcher, machine learning, open source">
+  <meta name="author" content="Your Name">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourusername.github.io/">
+  <meta property="og:title" content="Your Name - Software Engineer & Researcher">
+  <meta property="og:description" content="Personal website showcasing projects, research, and professional experience.">
+  <meta property="og:image" content="https://yourusername.github.io/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://yourusername.github.io/">
+  <meta property="twitter:title" content="Your Name - Software Engineer & Researcher">
+  <meta property="twitter:description" content="Personal website showcasing projects, research, and professional experience.">
+  <meta property="twitter:image" content="https://yourusername.github.io/og-image.jpg">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://yourusername.github.io/">
 </head>
 <body>
-  <!-- Top nav -->
-  <div class="topbar">
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Top Navigation -->
+  <header class="topbar" role="banner">
     <div class="topwrap">
-      <a class="site" href="index.html">YourName</a>
-      <nav>
+      <a class="site" href="index.html" aria-label="Home">YourName</a>
+      <nav role="navigation" aria-label="Main navigation">
         <a class="navlink" href="index.html" aria-current="page">Home</a>
         <a class="navlink" href="research.html">Research</a>
+        <a class="navlink" href="#contact">Contact</a>
       </nav>
     </div>
-  </div>
-
-  <!-- Layout: sidebar + main -->
+  </header>
+  
+  <!-- Main Layout -->
   <div class="wrap">
-    <aside class="side">
-      <img class="avatar" src="avatar.jpg" alt="Your portrait" loading="lazy" />
+    <!-- Sidebar -->
+    <aside class="side" role="complementary">
+      <img class="avatar" 
+           src="avatar.jpg" 
+           alt="Professional photo of Your Name" 
+           loading="lazy"
+           width="200"
+           height="200">
       <h1 class="name">Your Name</h1>
-      <p class="role">Your role · Your org</p>
-      <p class="bio">Short bio about your interests and focus areas. Keep it to two lines for balance.</p>
-
-      <ul class="slist">
-        <li><img src="icons/mail.svg" alt=""/><a class="btn" href="mailto:you@example.com">you@example.com</a></li>
-        <li><img src="icons/github.svg" alt=""/><a class="btn" href="https://github.com/yourhandle">github.com/yourhandle</a></li>
-        <li><img src="icons/linkedin.svg" alt=""/><a class="btn" href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a></li>
+      <p class="role">Senior Software Engineer · Tech Company</p>
+      <p class="bio">Building scalable systems and conducting research in machine learning and distributed computing.</p>
+      
+      <ul class="slist" role="list">
+        <li>
+          <img src="icons/mail.svg" alt="" aria-hidden="true">
+          <a class="btn" href="mailto:you@example.com" aria-label="Email address">
+            <span class="sr-only">Email: </span>you@example.com
+          </a>
+        </li>
+        <li>
+          <img src="icons/github.svg" alt="" aria-hidden="true">
+          <a class="btn" href="https://github.com/yourhandle" aria-label="GitHub profile" rel="noopener noreferrer" target="_blank">
+            <span class="sr-only">GitHub: </span>GitHub
+          </a>
+        </li>
+        <li>
+          <img src="icons/linkedin.svg" alt="" aria-hidden="true">
+          <a class="btn" href="https://www.linkedin.com/in/yourhandle/" aria-label="LinkedIn profile" rel="noopener noreferrer" target="_blank">
+            <span class="sr-only">LinkedIn: </span>LinkedIn
+          </a>
+        </li>
+        <li>
+          <img src="icons/twitter.svg" alt="" aria-hidden="true">
+          <a class="btn" href="https://twitter.com/yourhandle" aria-label="Twitter profile" rel="noopener noreferrer" target="_blank">
+            <span class="sr-only">Twitter: </span>@yourhandle
+          </a>
+        </li>
       </ul>
+      
+      <div style="margin-top: 20px;">
+        <a class="btn btn-primary" href="resume.pdf" download aria-label="Download resume PDF">
+          📄 Download Resume
+        </a>
+      </div>
     </aside>
-
-    <main class="main">
-      <section class="panel">
-        <h2>About</h2>
-        <p class="lead">A quick intro to who you are and what you work on. Mention your current interests and what you’re open to collaborating on.</p>
+    
+    <!-- Main Content -->
+    <main class="main" id="main-content" role="main">
+      <section class="panel" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Me</h2>
+        <p class="lead">
+          I'm a software engineer passionate about building elegant solutions to complex problems. 
+          Currently working on distributed systems at Tech Company, with a focus on performance optimization and scalability.
+        </p>
+        <p>
+          My interests span machine learning, web technologies, and open source development. 
+          I'm always open to collaborating on innovative projects and discussing new ideas in technology.
+        </p>
       </section>
-
-      <section class="panel">
-        <h2>Highlights</h2>
+      
+      <section class="panel" aria-labelledby="highlights-heading">
+        <h2 id="highlights-heading">Recent Highlights</h2>
         <div class="grid">
-          <div class="panel" style="margin:0">
-            <h3>Featured Project</h3>
-            <p>Brief summary of your best work. Why it’s useful/novel.</p>
-            <p class="meta"><a href="research.html#featured">Read more →</a></p>
-          </div>
-          <div class="panel" style="margin:0">
-            <h3>Recent</h3>
-            <ul class="list">
+          <article class="panel" style="margin:0">
+            <h3>🚀 Featured Project</h3>
+            <p>
+              <strong>ML Pipeline Optimizer</strong> - An open-source tool that reduces ML training time by 40% through intelligent resource allocation.
+            </p>
+            <p class="meta">
+              <a href="https://github.com/yourhandle/ml-optimizer" rel="noopener noreferrer" target="_blank">View on GitHub →</a>
+            </p>
+          </article>
+          
+          <article class="panel" style="margin:0">
+            <h3>📚 Latest Publications</h3>
+            <ul class="list" style="margin-top: 12px;">
               <li>
-                <div><strong>Thing you shipped</strong></div>
-                <div class="meta">2025 · <a href="research.html">details</a></div>
+                <div><strong>Efficient Distributed Training at Scale</strong></div>
+                <div class="meta">ICML 2025 · <a href="research.html#paper1">Read paper</a></div>
               </li>
               <li>
-                <div><strong>Talk or post</strong></div>
-                <div class="meta">2025 · <a href="#">slides</a></div>
+                <div><strong>Tech Talk: Modern Web Architecture</strong></div>
+                <div class="meta">JSConf 2025 · <a href="#" rel="noopener noreferrer" target="_blank">Watch recording</a></div>
               </li>
             </ul>
+          </article>
+        </div>
+      </section>
+      
+      <section class="panel" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Technical Skills</h2>
+        <div class="grid">
+          <div>
+            <h3>Languages & Frameworks</h3>
+            <p class="meta">Python, JavaScript/TypeScript, Go, React, Node.js, Django, FastAPI</p>
+          </div>
+          <div>
+            <h3>Technologies & Tools</h3>
+            <p class="meta">Docker, Kubernetes, AWS, PostgreSQL, Redis, Git, CI/CD, TensorFlow</p>
           </div>
         </div>
       </section>
-
-      <section id="contact" class="panel">
-        <h2>Contact</h2>
-        <p class="lead">The fastest way to reach me is email. I’m also active on GitHub and LinkedIn.</p>
-        <p><a class="btn" href="mailto:you@example.com">Email me</a></p>
+      
+      <section id="contact" class="panel" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Get In Touch</h2>
+        <p class="lead">
+          I'm always interested in discussing new opportunities, collaboration ideas, or just having a chat about technology.
+        </p>
+        <p>
+          The fastest way to reach me is via email. I typically respond within 24-48 hours.
+        </p>
+        <p>
+          <a class="btn btn-primary" href="mailto:you@example.com">
+            ✉️ Send me an email
+          </a>
+        </p>
       </section>
-
-      <p class="footer">© <span id="year"></span> Your Name</p>
+      
+      <!-- Footer -->
+      <footer class="footer" role="contentinfo">
+        <p>© <span id="year"></span> Your Name. Built with HTML, CSS, and a sprinkle of JavaScript.</p>
+        <p class="meta">
+          <a href="https://github.com/yourhandle/yourhandle.github.io" rel="noopener noreferrer" target="_blank">View source on GitHub</a>
+        </p>
+      </footer>
     </main>
   </div>
-
+  
+  <!-- Enhanced JavaScript -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // set nav aria-current based on path
-    const here = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.navlink').forEach(a => {
-      if (a.getAttribute('href') === here) a.setAttribute('aria-current','page');
-      else a.removeAttribute('aria-current');
+    // Set current year
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+    
+    // Enhanced navigation with error handling
+    function updateNavigation() {
+      const currentPath = location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('.navlink');
+      
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath || (href === '#contact' && currentPath === 'index.html')) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+    
+    // Run on page load
+    updateNavigation();
+    
+    // Add smooth scroll behavior for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Update URL without triggering scroll
+          history.pushState(null, null, targetId);
+        }
+      });
     });
+    
+    // Add loading class removal when page is fully loaded
+    window.addEventListener('load', () => {
+      document.body.classList.remove('loading');
+    });
+    
+    // Console easter egg
+    console.log('%c👋 Hey there!', 'font-size: 20px; color: #0969da;');
+    console.log('%cThanks for checking out the console! Feel free to reach out if you want to chat about code.', 'font-size: 14px;');
   </script>
 </body>
 </html>
