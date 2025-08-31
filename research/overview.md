@@ -1,0 +1,3 @@
+My research spans computational genomics, complex systems analysis, and statistical physics, with applications in healthcare, climate science, and financial systems. Currently at Boston University and the Broad Institute, I develop deep learning models and computational pipelines for long-read genomic analysis.
+
+My work has evolved from studying active matter physics and complex networks to applying these theoretical frameworks to real-world challenges in genomics and climate science. With expertise in statistical physics methods, machine learning, and high-performance computing, I tackle interdisciplinary problems that require both theoretical depth and computational innovation.
