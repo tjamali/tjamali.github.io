@@ -2,80 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tayeb Jamali — Academic Portfolio</title>
-  <meta name="description" content="Academic-style personal site: research, publications and CV." />
-  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Site Title</title>
+  <meta name="description" content="A short description for SEO." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" />
 </head>
 <body>
-  <header class="topbar" role="banner">
-    <div class="topwrap">
-      <div class="site">Tayeb Jamali / Site Title</div>
-      <nav aria-label="Primary">
-        <a class="navlink" href="index.html" aria-current="page">Home</a>
-        <a class="navlink" href="research.html">Research</a>
-        <a class="navlink" href="#publications">Publications</a>
-        <a class="navlink" href="#cv">CV</a>
-      </nav>
-    </div>
+  <header class="site-header">
+    <a class="brand" href="index.html">YourName</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+    </nav>
   </header>
 
-  <div class="wrap" id="home">
-    <aside class="side" aria-label="Sidebar profile">
-      <img class="avatar" src="images/profile.jpeg" alt="Portrait of Tayeb Jamali" />
-      <h2 class="name">Tayeb Jamali</h2>
-      <p class="role">Broad Institute of MIT and Harvard</p>
-      <p class="bio">Brief biography for the left sidebar. Two or three sentences about your interests and current role.</p>
-      <ul class="slist">
-        <li><img src="images/location_icon.png" alt="Map"><span>Massachusetts, US</span></li>
-        <li style="font-size:14px;">✉️ tjamali [at] broadinstitute [dot] org</li>
-        <li><img src="images/google_scholar.png" alt="Google"><a href="https://scholar.google.com/citations?user=gKxX7foAAAAJ&hl=en&oi=ao">Google Scholar</a></li>
-        <li><img src="images/orcid.png" alt="ORCID"><a href="https://orcid.org/0000-0002-0690-3580" target="_blank" rel="noopener">ORCID</a></li>
-        <li><img src="images/github.png" alt="GitHub"><a href="https://github.com/tjamali" target="_blank" rel="noopener">GitHub</a></li>
-        <li><img src="images/linkedin.png" alt="LinkedIn"><a href="https://www.linkedin.com/in/tjamali/" target="_blank" rel="noopener">LinkedIn</a></li>
+  <main class="container">
+    <section class="hero">
+      <h1>Hi, I’m Your Name</h1>
+      <p class="lede">One line about what you do. Keep it crisp.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="research.html">See my work</a>
+        <a class="btn" href="#contact">Contact me</a>
+      </div>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <h2>Featured Project</h2>
+        <p>Brief teaser for your best thing. Link below.</p>
+        <a class="card-link" href="research.html#featured">Read more →</a>
+      </article>
+      <article class="card">
+        <h2>About</h2>
+        <p>Short bio: who you are, what you care about.</p>
+        <a class="card-link" href="research.html#about">More about me →</a>
+      </article>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:you@example.com">you@example.com</a></li>
+        <li><a href="https://github.com/yourhandle">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a></li>
       </ul>
-      <p style="margin-top:14px"><a class="btn" href="#cv">View CV</a></p>
-    </aside>
+    </section>
+  </main>
 
-    <main class="main">
-      <section class="panel">
-        <h2>Welcome</h2>
-        <p class="lead">This site highlights selected publications and my CV. For projects and agenda details, see the <a href="research.html">Research page</a>.</p>
-      </section>
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Your Name</small>
+  </footer>
 
-      <section class="panel" id="publications" aria-labelledby="pubs-title">
-        <h2 id="pubs-title">Publications</h2>
-        <ul class="list">
-          <li>
-            <strong>Sequence Models for Irregular Time-Series with Conformal Coverage</strong>
-            <div class="meta">Journal of ML Systems, 2024 · with A. Smith, B. Lee · <a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">BibTeX</a></div>
-          </li>
-          <li>
-            <strong>Segment-Aware RAG: Indexing and Reranking for Long Documents</strong>
-            <div class="meta">ACL Findings, 2023 · with C. Doe · <a href="#">PDF</a> · <a href="#">Slides</a></div>
-          </li>
-          <li>
-            <strong>Measuring Helpfulness Beyond Accuracy in LLMs</strong>
-            <div class="meta">CHI Workshop, 2023 · <a href="#">PDF</a></div>
-          </li>
-        </ul>
-      </section>
-
-      <section class="panel" id="cv">
-        <h2>CV</h2>
-        <p><a class="btn" href="/cv.pdf">Download CV (PDF)</a></p>
-        <ul class="list">
-          <li><strong>Current</strong> — Research Scientist, Example Lab (2022–present)</li>
-          <li><strong>Prior</strong> — Data Scientist, Example Co. (2018–2022)</li>
-          <li><strong>Education</strong> — M.Sc., Computer Science, Red Brick University</li>
-        </ul>
-      </section>
-
-      <p class="footer">© <span id="y"></span> Tayeb Jamali · Built on GitHub Pages</p>
-    </main>
-  </div>
-
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
