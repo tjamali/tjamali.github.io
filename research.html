@@ -7,36 +7,71 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">YourName</a>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a class="active" href="research.html">Research</a>
-    </nav>
-  </header>
+  <div class="topbar">
+    <div class="topwrap">
+      <a class="site" href="index.html">YourName</a>
+      <nav>
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink" href="research.html" aria-current="page">Research</a>
+      </nav>
+    </div>
+  </div>
 
-  <main class="container">
-    <h1>Research</h1>
-    <p class="lede">Selected projects and publications.</p>
+  <div class="wrap">
+    <aside class="side">
+      <img class="avatar" src="avatar.jpg" alt="Your portrait" loading="lazy" />
+      <h1 class="name">Your Name</h1>
+      <p class="role">Your role · Your org</p>
+      <p class="bio">Short bio repeated here for continuity across pages.</p>
+      <ul class="slist">
+        <li><img src="icons/mail.svg" alt=""/><a class="btn" href="mailto:you@example.com">you@example.com</a></li>
+        <li><img src="icons/github.svg" alt=""/><a class="btn" href="https://github.com/yourhandle">github.com/yourhandle</a></li>
+        <li><img src="icons/linkedin.svg" alt=""/><a class="btn" href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a></li>
+      </ul>
+    </aside>
 
-    <section class="list">
-      <article class="list-item" id="featured">
-        <h2>Project / Paper Title</h2>
-        <p>One-sentence summary of what you did and why it matters.</p>
-        <ul class="meta">
-          <li><strong>Year:</strong> 2025</li>
-          <li><strong>Tags:</strong> NLP, Visualization</li>
-          <li><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Demo</a></li>
+    <main class="main">
+      <section class="panel">
+        <h2>Research</h2>
+        <p class="lead">Selected projects and publications.</p>
+      </section>
+
+      <section class="panel" id="featured">
+        <h2>Featured</h2>
+        <ul class="list">
+          <li>
+            <div><strong>Project / Paper Title</strong></div>
+            <div class="meta">2025 · NLP, Visualization · <a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Demo</a></div>
+            <p>One-sentence summary of what you did and why it matters.</p>
+          </li>
         </ul>
-      </article>
+      </section>
 
-      <!-- Duplicate <article> blocks for more items -->
-    </section>
-  </main>
+      <section class="panel">
+        <h2>All publications</h2>
+        <ul class="list">
+          <li>
+            <div><strong>Paper A</strong></div>
+            <div class="meta">2024 · Topic · <a href="#">PDF</a></div>
+          </li>
+          <li>
+            <div><strong>Paper B</strong></div>
+            <div class="meta">2023 · Topic · <a href="#">PDF</a></div>
+          </li>
+        </ul>
+      </section>
 
-  <footer class="site-footer">
-    <small>© <span id="year"></span> Your Name</small>
-  </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+      <p class="footer">© <span id="year"></span> Your Name</p>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const here = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navlink').forEach(a => {
+      if (a.getAttribute('href') === here) a.setAttribute('aria-current','page');
+      else a.removeAttribute('aria-current');
+    });
+  </script>
 </body>
 </html>
