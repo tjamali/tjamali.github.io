@@ -201,11 +201,6 @@
         aboutContent.innerHTML = html;
         aboutContent.classList.remove('loading');
         
-        // Add lead class to first paragraph if it exists
-        const firstParagraph = aboutContent.querySelector('p');
-        if (firstParagraph) {
-          firstParagraph.classList.add('lead');
-        }
       } catch (error) {
         console.error('Error loading about content:', error);
         document.getElementById('about-content').innerHTML = 
