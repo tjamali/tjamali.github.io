@@ -1,77 +1,339 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Research — Your Name</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>Research & Publications - Your Name</title>
+  <meta name="description" content="Research projects, publications, and academic contributions by Your Name in machine learning, distributed systems, and software engineering.">
+  <meta name="keywords" content="research, publications, machine learning, distributed systems, academic papers">
+  <meta name="author" content="Your Name">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourusername.github.io/research.html">
+  <meta property="og:title" content="Research & Publications - Your Name">
+  <meta property="og:description" content="Explore my research projects and academic publications in computer science.">
+  <meta property="og:image" content="https://yourusername.github.io/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://yourusername.github.io/research.html">
+  <meta property="twitter:title" content="Research & Publications - Your Name">
+  <meta property="twitter:description" content="Explore my research projects and academic publications in computer science.">
+  <meta property="twitter:image" content="https://yourusername.github.io/og-image.jpg">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://yourusername.github.io/research.html">
 </head>
 <body>
-  <div class="topbar">
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Top Navigation -->
+  <header class="topbar" role="banner">
     <div class="topwrap">
-      <a class="site" href="index.html">YourName</a>
-      <nav>
+      <a class="site" href="index.html" aria-label="Home">YourName</a>
+      <nav role="navigation" aria-label="Main navigation">
         <a class="navlink" href="index.html">Home</a>
         <a class="navlink" href="research.html" aria-current="page">Research</a>
+        <a class="navlink" href="index.html#contact">Contact</a>
       </nav>
     </div>
-  </div>
-
+  </header>
+  
+  <!-- Main Layout -->
   <div class="wrap">
-    <aside class="side">
-      <img class="avatar" src="avatar.jpg" alt="Your portrait" loading="lazy" />
+    <!-- Sidebar -->
+    <aside class="side" role="complementary">
+      <img class="avatar" 
+           src="avatar.jpg" 
+           alt="Professional photo of Your Name" 
+           loading="lazy"
+           width="200"
+           height="200">
       <h1 class="name">Your Name</h1>
-      <p class="role">Your role · Your org</p>
-      <p class="bio">Short bio repeated here for continuity across pages.</p>
-      <ul class="slist">
-        <li><img src="icons/mail.svg" alt=""/><a class="btn" href="mailto:you@example.com">you@example.com</a></li>
-        <li><img src="icons/github.svg" alt=""/><a class="btn" href="https://github.com/yourhandle">github.com/yourhandle</a></li>
-        <li><img src="icons/linkedin.svg" alt=""/><a class="btn" href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a></li>
+      <p class="role">Senior Software Engineer · Tech Company</p>
+      <p class="bio">Building scalable systems and conducting research in machine learning and distributed computing.</p>
+      
+      <ul class="slist" role="list">
+        <li>
+          <img src="icons/mail.svg" alt="" aria-hidden="true">
+          <a class="btn" href="mailto:you@example.com" aria-label="Email address">
+            <span class="sr-only">Email: </span>you@example.com
+          </a>
+        </li>
+        <li>
+          <img src="icons/github.svg" alt="" aria-hidden="true">
+          <a class="btn" href="https://github.com/yourhandle" aria-label="GitHub profile" rel="noopener noreferrer" target="_blank">
+            <span class="sr-only">GitHub: </span>GitHub
+          </a>
+        </li>
+        <li>
+          <img src="icons/linkedin.svg" alt="" aria-hidden="true">
+          <a class="btn" href="https://www.linkedin.com/in/yourhandle/" aria-label="LinkedIn profile" rel="noopener noreferrer" target="_blank">
+            <span class="sr-only">LinkedIn: </span>LinkedIn
+          </a>
+        </li>
+        <li>
+          <img src="icons/scholar.svg" alt="" aria-hidden="true">
+          <a class="btn" href="https://scholar.google.com/citations?user=YOURID" aria-label="Google Scholar profile" rel="noopener noreferrer" target="_blank">
+            <span class="sr-only">Google Scholar: </span>Scholar
+          </a>
+        </li>
       </ul>
+      
+      <div style="margin-top: 20px;">
+        <a class="btn btn-primary" href="cv.pdf" download aria-label="Download academic CV PDF">
+          📄 Download CV
+        </a>
+      </div>
     </aside>
-
-    <main class="main">
-      <section class="panel">
-        <h2>Research</h2>
-        <p class="lead">Selected projects and publications.</p>
+    
+    <!-- Main Content -->
+    <main class="main" id="main-content" role="main">
+      <section class="panel" aria-labelledby="research-heading">
+        <h2 id="research-heading">Research Overview</h2>
+        <p class="lead">
+          My research focuses on the intersection of distributed systems and machine learning, 
+          with particular emphasis on scalability, efficiency, and real-world applications.
+        </p>
+        <p>
+          Current interests include federated learning, neural architecture search, and 
+          optimization techniques for large-scale distributed training.
+        </p>
       </section>
-
-      <section class="panel" id="featured">
-        <h2>Featured</h2>
-        <ul class="list">
+      
+      <section class="panel" id="featured" aria-labelledby="featured-heading">
+        <h2 id="featured-heading">Featured Projects</h2>
+        <ul class="list" role="list">
           <li>
-            <div><strong>Project / Paper Title</strong></div>
-            <div class="meta">2025 · NLP, Visualization · <a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Demo</a></div>
-            <p>One-sentence summary of what you did and why it matters.</p>
+            <article>
+              <div><strong>Adaptive Federated Learning Framework</strong></div>
+              <div class="meta">
+                2025 · Machine Learning, Distributed Systems · 
+                <a href="papers/federated-learning.pdf" aria-label="Download PDF of Adaptive Federated Learning Framework">PDF</a> · 
+                <a href="https://github.com/yourhandle/fed-learn" rel="noopener noreferrer" target="_blank" aria-label="View code on GitHub">Code</a> · 
+                <a href="https://demo.example.com" rel="noopener noreferrer" target="_blank" aria-label="View live demo">Demo</a>
+              </div>
+              <p>
+                Developed a novel federated learning framework that adapts to heterogeneous client capabilities, 
+                improving convergence speed by 35% while maintaining privacy guarantees. 
+                Deployed in production serving 10M+ users.
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <div><strong>Neural Architecture Search for Edge Devices</strong></div>
+              <div class="meta">
+                2024 · AutoML, Edge Computing · 
+                <a href="papers/nas-edge.pdf" aria-label="Download PDF of Neural Architecture Search paper">PDF</a> · 
+                <a href="https://github.com/yourhandle/nas-edge" rel="noopener noreferrer" target="_blank" aria-label="View code on GitHub">Code</a>
+              </div>
+              <p>
+                Automated neural network design for resource-constrained edge devices, achieving 
+                state-of-the-art accuracy with 10x fewer parameters than comparable models.
+              </p>
+            </article>
           </li>
         </ul>
       </section>
-
-      <section class="panel">
-        <h2>All publications</h2>
-        <ul class="list">
-          <li>
-            <div><strong>Paper A</strong></div>
-            <div class="meta">2024 · Topic · <a href="#">PDF</a></div>
+      
+      <section class="panel" aria-labelledby="publications-heading">
+        <h2 id="publications-heading">Publications</h2>
+        
+        <h3 style="margin-top: 20px; color: var(--text-secondary);">2025</h3>
+        <ul class="list" role="list">
+          <li id="paper1">
+            <article>
+              <div><strong>Efficient Distributed Training at Scale</strong></div>
+              <div class="meta">
+                <em>International Conference on Machine Learning (ICML)</em> · 
+                <a href="papers/icml2025.pdf" aria-label="Download PDF">PDF</a> · 
+                <a href="https://arxiv.org/abs/2025.xxxxx" rel="noopener noreferrer" target="_blank">arXiv</a> · 
+                <a href="#" aria-label="View citation">Cite</a>
+              </div>
+              <p class="meta" style="margin-top: 8px;">
+                <strong>Authors:</strong> Your Name, Collaborator A, Collaborator B
+              </p>
+            </article>
           </li>
           <li>
-            <div><strong>Paper B</strong></div>
-            <div class="meta">2023 · Topic · <a href="#">PDF</a></div>
+            <article>
+              <div><strong>Privacy-Preserving Machine Learning in Healthcare</strong></div>
+              <div class="meta">
+                <em>Nature Machine Intelligence</em> · 
+                <a href="papers/nature-mi-2025.pdf" aria-label="Download PDF">PDF</a> · 
+                <a href="https://doi.org/10.1038/xxxxx" rel="noopener noreferrer" target="_blank">DOI</a>
+              </div>
+              <p class="meta" style="margin-top: 8px;">
+                <strong>Authors:</strong> Collaborator C, Your Name, et al.
+              </p>
+            </article>
+          </li>
+        </ul>
+        
+        <h3 style="margin-top: 20px; color: var(--text-secondary);">2024</h3>
+        <ul class="list" role="list">
+          <li>
+            <article>
+              <div><strong>Optimizing Resource Allocation in Cloud Computing</strong></div>
+              <div class="meta">
+                <em>IEEE Transactions on Cloud Computing</em> · 
+                <a href="papers/ieee-tcc-2024.pdf" aria-label="Download PDF">PDF</a>
+              </div>
+              <p class="meta" style="margin-top: 8px;">
+                <strong>Authors:</strong> Your Name, Collaborator D
+              </p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <div><strong>A Survey of Modern Distributed Systems</strong></div>
+              <div class="meta">
+                <em>ACM Computing Surveys</em> · 
+                <a href="papers/acm-survey-2024.pdf" aria-label="Download PDF">PDF</a>
+              </div>
+              <p class="meta" style="margin-top: 8px;">
+                <strong>Authors:</strong> Your Name, Collaborator E, Collaborator F
+              </p>
+            </article>
           </li>
         </ul>
       </section>
-
-      <p class="footer">© <span id="year"></span> Your Name</p>
+      
+      <section class="panel" aria-labelledby="talks-heading">
+        <h2 id="talks-heading">Talks & Presentations</h2>
+        <ul class="list" role="list">
+          <li>
+            <article>
+              <div><strong>Scaling ML Systems: Lessons from Production</strong></div>
+              <div class="meta">
+                KubeCon 2025 · San Francisco, CA · 
+                <a href="slides/kubecon2025.pdf" aria-label="Download presentation slides">Slides</a> · 
+                <a href="https://youtube.com/watch?v=xxxxx" rel="noopener noreferrer" target="_blank" aria-label="Watch recording on YouTube">Recording</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <div><strong>Building Privacy-First ML Applications</strong></div>
+              <div class="meta">
+                PyData Global 2024 · Virtual · 
+                <a href="slides/pydata2024.pdf" aria-label="Download presentation slides">Slides</a>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+      
+      <section class="panel" aria-labelledby="awards-heading">
+        <h2 id="awards-heading">Awards & Recognition</h2>
+        <ul class="list" role="list">
+          <li>
+            <div><strong>Best Paper Award</strong></div>
+            <div class="meta">ICML 2025 · For "Efficient Distributed Training at Scale"</div>
+          </li>
+          <li>
+            <div><strong>Outstanding Reviewer</strong></div>
+            <div class="meta">NeurIPS 2024 · Top 10% of reviewers</div>
+          </li>
+          <li>
+            <div><strong>Google PhD Fellowship</strong></div>
+            <div class="meta">2023-2025 · Machine Learning</div>
+          </li>
+        </ul>
+      </section>
+      
+      <!-- Footer -->
+      <footer class="footer" role="contentinfo">
+        <p>© <span id="year"></span> Your Name. All rights reserved.</p>
+        <p class="meta">
+          <a href="https://github.com/yourhandle/yourhandle.github.io" rel="noopener noreferrer" target="_blank">View source on GitHub</a> · 
+          <a href="index.html#contact">Contact</a>
+        </p>
+      </footer>
     </main>
   </div>
-
+  
+  <!-- Enhanced JavaScript -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const here = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.navlink').forEach(a => {
-      if (a.getAttribute('href') === here) a.setAttribute('aria-current','page');
-      else a.removeAttribute('aria-current');
+    // Set current year
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+    
+    // Enhanced navigation with error handling
+    function updateNavigation() {
+      const currentPath = location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('.navlink');
+      
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+    
+    // Run on page load
+    updateNavigation();
+    
+    // Add smooth scroll behavior for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Update URL without triggering scroll
+          history.pushState(null, null, targetId);
+        }
+      });
     });
+    
+    // Add loading class removal when page is fully loaded
+    window.addEventListener('load', () => {
+      document.body.classList.remove('loading');
+    });
+    
+    // Handle hash navigation from other pages
+    if (window.location.hash) {
+      setTimeout(() => {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
   </script>
 </body>
 </html>
