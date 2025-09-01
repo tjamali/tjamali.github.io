@@ -74,21 +74,22 @@
     
     <!-- Main Content -->
     <main class="main" id="main-content" role="main">
-      <section class="panel" aria-labelledby="research-heading">
+      <!-- Each section is initially hidden with style="display:none" -->
+      <section class="panel" id="overview-section" aria-labelledby="research-heading" style="display:none">
         <h2 id="research-heading">Research Overview</h2>
         <div id="research-overview-content" class="loading">
           <p class="lead">Loading research overview...</p>
         </div>
       </section>
       
-      <section class="panel" id="current" aria-labelledby="current-heading">
+      <section class="panel" id="current-section" aria-labelledby="current-heading" style="display:none">
         <h2 id="current-heading">Current Research</h2>
         <div id="current-research-content" class="loading">
           <p>Loading current research projects...</p>
         </div>
       </section>
       
-      <section class="panel" id="publications" aria-labelledby="publications-heading">
+      <section class="panel" id="publications-section" aria-labelledby="publications-heading" style="display:none">
         <h2 id="publications-heading">Publications</h2>
         <p class="meta">12 peer-reviewed publications in leading journals</p>
         <div id="publications-content" class="loading">
@@ -96,18 +97,26 @@
         </div>
       </section>
       
-      <section class="panel" id="presentations" aria-labelledby="presentations-heading">
+      <section class="panel" id="presentations-section" aria-labelledby="presentations-heading" style="display:none">
         <h2 id="presentations-heading">Talks & Presentations</h2>
         <div id="presentations-content" class="loading">
           <p>Loading presentations...</p>
         </div>
       </section>
       
-      <section class="panel" id="awards" aria-labelledby="awards-heading">
+      <section class="panel" id="awards-section" aria-labelledby="awards-heading" style="display:none">
         <h2 id="awards-heading">Awards & Recognition</h2>
         <div id="awards-content" class="loading">
           <p>Loading awards...</p>
         </div>
+      </section>
+      
+      <!-- Fallback message if no content is available -->
+      <section class="panel" id="no-content-message" style="display:none">
+        <h2>Research</h2>
+        <p class="lead">Research content is being updated. Please check back soon or visit my 
+        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar profile</a> 
+        for a complete list of publications.</p>
       </section>
       
       <!-- Footer -->
@@ -123,87 +132,113 @@
   
   <!-- Enhanced JavaScript -->
   <script>
-    // Configuration for markdown files to load
-    const markdownFiles = {
-      'research-overview-content': 'research/overview.md',
-      'current-research-content': 'research/current.md',
-      'publications-content': 'research/publications.md',
-      'presentations-content': 'research/presentations.md',
-      'awards-content': 'research/awards.md'
-    };
+    // Configuration for sections and their markdown files
+    const sections = [
+      {
+        sectionId: 'overview-section',
+        contentId: 'research-overview-content',
+        file: 'research/overview.md'
+      },
+      {
+        sectionId: 'current-section',
+        contentId: 'current-research-content',
+        file: 'research/current.md'
+      },
+      {
+        sectionId: 'publications-section',
+        contentId: 'publications-content',
+        file: 'research/publications.md'
+      },
+      {
+        sectionId: 'presentations-section',
+        contentId: 'presentations-content',
+        file: 'research/presentations.md'
+      },
+      {
+        sectionId: 'awards-section',
+        contentId: 'awards-content',
+        file: 'research/awards.md'
+      }
+    ];
     
-    // Generic function to load markdown content
-    async function loadMarkdownContent(elementId, filepath) {
-      const element = document.getElementById(elementId);
-      if (!element) return;
+    // Track how many sections have content
+    let sectionsWithContent = 0;
+    
+    // Function to load markdown content for a section
+    async function loadSection(section) {
+      const sectionElement = document.getElementById(section.sectionId);
+      const contentElement = document.getElementById(section.contentId);
+      
+      if (!sectionElement || !contentElement) return false;
       
       try {
-        const response = await fetch(filepath);
+        const response = await fetch(section.file);
+        
+        // Check if file exists
         if (!response.ok) {
-          throw new Error(`Failed to load ${filepath}`);
+          console.log(`File not found: ${section.file}`);
+          return false;
         }
         
         const markdown = await response.text();
-        const html = marked.parse(markdown);
         
-        element.innerHTML = html;
-        element.classList.remove('loading');
+        // Check if file has content (not empty or just whitespace)
+        if (!markdown || markdown.trim().length === 0) {
+          console.log(`File is empty: ${section.file}`);
+          return false;
+        }
+        
+        // Parse markdown and add to page
+        const html = marked.parse(markdown);
+        contentElement.innerHTML = html;
+        contentElement.classList.remove('loading');
+        
+        // Show the section
+        sectionElement.style.display = 'block';
         
         // Add styling to lists if they exist
-        element.querySelectorAll('ul').forEach(ul => {
+        contentElement.querySelectorAll('ul').forEach(ul => {
           if (!ul.classList.contains('list')) {
             ul.classList.add('list');
           }
         });
         
         // Add meta class to emphasized text
-        element.querySelectorAll('em').forEach(em => {
+        contentElement.querySelectorAll('em').forEach(em => {
           const parent = em.parentElement;
           if (parent && parent.tagName === 'P') {
             parent.classList.add('meta');
           }
         });
         
+        return true;
+        
       } catch (error) {
-        console.error(`Error loading ${filepath}:`, error);
-        
-        // Provide fallback content based on section
-        let fallbackContent = '<p>Content not available. Please check back later.</p>';
-        
-        if (elementId === 'research-overview-content') {
-          fallbackContent = `
-            <p class="lead">My research spans computational genomics, complex systems analysis, and statistical physics, 
-            with applications in healthcare, climate science, and financial systems.</p>
-            <p>Currently at Boston University and the Broad Institute, I develop deep learning models and 
-            computational pipelines for long-read genomic analysis, focusing on disease-associated pathways 
-            in neurodegenerative disorders.</p>
-          `;
-        } else if (elementId === 'current-research-content') {
-          fallbackContent = `
-            <h3>Postdoctoral Research - Boston University (2023-Present)</h3>
-            <p><strong>Long-read Multi-omics Analysis:</strong> Developing pipelines and deep learning models 
-            for Oxford Nanopore sequencing data analysis, with focus on identifying disease-associated genes 
-            and regulatory pathways in Alzheimer's disease.</p>
-          `;
-        } else if (elementId === 'publications-content') {
-          fallbackContent = `
-            <p>Please visit my <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar profile</a> 
-            for a complete list of publications.</p>
-          `;
-        }
-        
-        element.innerHTML = fallbackContent;
-        element.classList.remove('loading');
+        console.error(`Error loading ${section.file}:`, error);
+        return false;
       }
     }
     
-    // Load all markdown content when page loads
-    async function loadAllContent() {
-      const loadPromises = Object.entries(markdownFiles).map(([elementId, filepath]) => 
-        loadMarkdownContent(elementId, filepath)
-      );
+    // Load all sections
+    async function loadAllSections() {
+      const loadPromises = sections.map(async (section) => {
+        const hasContent = await loadSection(section);
+        if (hasContent) {
+          sectionsWithContent++;
+        }
+      });
       
       await Promise.all(loadPromises);
+      
+      // If no sections have content, show the fallback message
+      if (sectionsWithContent === 0) {
+        const noContentMessage = document.getElementById('no-content-message');
+        if (noContentMessage) {
+          noContentMessage.style.display = 'block';
+        }
+      }
+      
+      console.log(`Loaded ${sectionsWithContent} sections with content`);
     }
     
     // Set current year
@@ -230,7 +265,7 @@
     // Initialize page
     document.addEventListener('DOMContentLoaded', () => {
       updateNavigation();
-      loadAllContent();
+      loadAllSections();
       document.body.classList.remove('loading');
     });
     
@@ -264,12 +299,12 @@
             block: 'start'
           });
         }
-      }, 100);
+      }, 500); // Increased timeout to ensure content is loaded
     }
     
     // Console message
-    console.log('%c📚 Research Page Loaded', 'font-size: 16px; color: #0969da;');
-    console.log('Loading content from markdown files for easy maintenance.');
+    console.log('%c📚 Research Page - Dynamic Section Loading', 'font-size: 16px; color: #0969da;');
+    console.log('Sections will only appear if their corresponding markdown files exist and have content.');
   </script>
 </body>
 </html>
