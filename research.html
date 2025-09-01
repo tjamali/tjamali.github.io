@@ -61,57 +61,15 @@
   
   <!-- Main Layout -->
   <div class="wrap">
-    <!-- Sidebar -->
-    <aside class="side" role="complementary">
-      <img class="avatar" 
-           src="avatar.jpg" 
-           alt="Professional photo of Tayeb Jamali" 
-           loading="lazy"
-           width="200"
-           height="200">
-      <h1 class="name">Tayeb Jamali</h1>
-      <p class="role">Postdoctoral Associate · Boston University</p>
-      <p class="bio">Computational researcher specializing in statistical physics, complex systems analysis, and machine learning.</p>
-      
-      <ul class="slist" role="list">
-        <li>
-          <img src="icons/mail.svg" alt="" aria-hidden="true">
-          <a class="btn" href="mailto:tjamali@broadinstitute.org" aria-label="Email address">
-            <span class="sr-only">Email: </span>tjamali@broadinstitute.org
-          </a>
-        </li>
-        <li>
-          <img src="icons/github.svg" alt="" aria-hidden="true">
-          <a class="btn" href="https://github.com/tayebjamali" aria-label="GitHub profile" rel="noopener noreferrer" target="_blank">
-            <span class="sr-only">GitHub: </span>GitHub
-          </a>
-        </li>
-        <li>
-          <img src="icons/linkedin.svg" alt="" aria-hidden="true">
-          <a class="btn" href="https://www.linkedin.com/in/tayeb-jamali/" aria-label="LinkedIn profile" rel="noopener noreferrer" target="_blank">
-            <span class="sr-only">LinkedIn: </span>LinkedIn
-          </a>
-        </li>
-        <li>
-          <img src="icons/scholar.svg" alt="" aria-hidden="true">
-          <a class="btn" href="https://scholar.google.com/citations?user=YOUR_ID" aria-label="Google Scholar profile" rel="noopener noreferrer" target="_blank">
-            <span class="sr-only">Google Scholar: </span>Scholar
-          </a>
-        </li>
-        <li>
-          <img src="icons/kaggle.svg" alt="" aria-hidden="true">
-          <a class="btn" href="https://www.kaggle.com/tayebjamali" aria-label="Kaggle profile" rel="noopener noreferrer" target="_blank">
-            <span class="sr-only">Kaggle: </span>Kaggle
-          </a>
-        </li>
-      </ul>
-      
-      <div style="margin-top: 20px;">
-        <a class="btn btn-primary" href="cv.pdf" download aria-label="Download CV PDF">
-          📄 Download CV
-        </a>
-      </div>
-    </aside>
+    <div id="sidebar-container"></div>
+    <script>
+      // Load sidebar
+      fetch('sidebar.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('sidebar-container').innerHTML = html;
+        });
+    </script>
     
     <!-- Main Content -->
     <main class="main" id="main-content" role="main">
