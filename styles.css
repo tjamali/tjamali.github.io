@@ -294,8 +294,8 @@ nav {
 }
 
 .slist img {
-  width: 30px !important;
-  height: 30px !important;
+  width: 20px;
+  height: 20px;
   display: block;
   opacity: 0.75;
   transition: opacity 0.2s;
