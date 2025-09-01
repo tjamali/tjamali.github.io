@@ -108,21 +108,21 @@ a:focus-visible {
   border-radius: 4px;
 }
 
-/* Skip to content link for accessibility */
 .skip-link {
   position: absolute;
-  top: -40px;
-  left: 0;
+  top: -100px;  /* Move it further up */
+  left: -100px;  /* Move it off to the left too */
   background: var(--brand);
   color: white;
   padding: 8px 16px;
   border-radius: 0 0 8px 0;
   z-index: 100;
-  transition: top 0.2s;
+  transition: top 0.2s, left 0.2s;
 }
 
 .skip-link:focus {
   top: 0;
+  left: 0;  /* Bring it back when focused */
 }
 
 /* Top Navigation */
