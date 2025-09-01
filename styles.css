@@ -397,13 +397,6 @@ nav {
   /* Remove all the border, background, and box styling */
 }
 
-.list li:hover {
-  background: var(--surface);
-  border-color: var(--line);
-  transform: translateX(4px);
-  box-shadow: var(--shadow-sm);
-}
-
 .list li:first-child {
   margin-top: 0;
 }
