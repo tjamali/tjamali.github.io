@@ -153,9 +153,10 @@ a:focus-visible {
 }
 
 .site {
+  font-family: 'Dancing Script', cursive;
   font-weight: 700;
-  font-size: 1.125rem;
-  letter-spacing: -0.02em;
+  font-size: 1.4rem;  /* Slightly larger for calligraphy */
+  letter-spacing: 0.5px;
   color: var(--text);
   transition: transform 0.2s ease;
 }
