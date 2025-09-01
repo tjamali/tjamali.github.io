@@ -153,9 +153,9 @@ a:focus-visible {
 }
 
 .site {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Great Vibes', cursive;
   font-weight: 700;
-  font-size: 1.4rem;  /* Slightly larger for calligraphy */
+  font-size: 1.6rem;  /* Slightly larger for calligraphy */
   letter-spacing: 0.5px;
   color: var(--text);
   transition: transform 0.2s ease;
