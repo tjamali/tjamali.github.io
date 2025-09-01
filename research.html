@@ -202,14 +202,6 @@
           }
         });
         
-        // Add meta class to emphasized text
-        contentElement.querySelectorAll('em').forEach(em => {
-          const parent = em.parentElement;
-          if (parent && parent.tagName === 'P') {
-            parent.classList.add('meta');
-          }
-        });
-        
         return true;
         
       } catch (error) {
