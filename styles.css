@@ -153,10 +153,9 @@ a:focus-visible {
 }
 
 .site {
-  font-family: 'Allura', cursive;
+  font-family: 'Parisienne', cursive;
   font-weight: 700;
-  font-size: 1.6rem;  /* Slightly larger for calligraphy */
-  letter-spacing: 0.5px;
+  font-size: 1.8rem;  /* Slightly larger for calligraphy */
   color: var(--text);
   transition: transform 0.2s ease;
 }
