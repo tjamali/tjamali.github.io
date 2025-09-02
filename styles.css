@@ -154,8 +154,9 @@ a:focus-visible {
 
 .site {
   font-family: 'Fleur De Leah', cursive;
-  font-weight: 700;
-  font-size: 1.8rem;  /* Slightly larger for calligraphy */
+  font-weight: 500;
+  font-size: 2.0rem;  /* Slightly larger for calligraphy */
+  letter-spacing: 1px;
   color: var(--text);
   transition: transform 0.2s ease;
 }
