@@ -162,7 +162,7 @@ a:focus-visible {
 }
 
 .site:hover {
-  transform: translateX(2px);
+  //transform: translateX(2px);
   text-decoration: none;
 }
 
